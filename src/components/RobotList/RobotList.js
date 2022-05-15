@@ -7,11 +7,9 @@ const RobotList = () => {
   return (
     <>
       <RobotListStyled className="robot-list">
-        (
         {robots.map((robot) => (
           <Robot key={robot._id} robot={robot} />
         ))}
-        )
       </RobotListStyled>
     </>
   );
