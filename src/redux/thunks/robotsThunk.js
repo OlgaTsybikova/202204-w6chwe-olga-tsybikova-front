@@ -1,10 +1,11 @@
+import axios from "axios";
 import { loadRobotsActionCreator } from "../feature/robotSlice";
 const loadRobotsActionThunk = () => async (dispatch) => {
-  const response = await fetch(process.env.REACT_APP_ROBOTS, {
-    method: "GET",
-    mode: "cors",
-  });
-  const robots = await response.json();
-  dispatch(loadRobotsActionCreator(robots.robots));
+  try {
+    const { data: robots } = await axios.get(process.env.REACT_APP_ROBOTS);
+    dispatch(loadRobotsActionCreator(robots.robots));
+  } catch {
+    throw new Error("Not found");
+  }
 };
 export default loadRobotsActionThunk;
