@@ -4,8 +4,8 @@ const loadRobotsActionThunk = () => async (dispatch) => {
   try {
     const { data: robots } = await axios.get(process.env.REACT_APP_ROBOTS);
     dispatch(loadRobotsActionCreator(robots.robots));
-  } catch {
-    throw new Error("Not found");
+  } catch (error) {
+    return error;
   }
 };
 export default loadRobotsActionThunk;
