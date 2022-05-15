@@ -1,10 +1,19 @@
-const Robot = () => {
+import RobotStyled from "./RobotStyled";
+
+const Robot = ({
+  robot,
+  robot: { name, image, resilience, speed, created },
+}) => {
   return (
-    <>
-      <li>
-        <h2>Robot's Name</h2>
-      </li>
-    </>
+    <RobotStyled className="robot crop">
+      <h2 className="robot_name">{name}</h2>
+      <img className="robot_image" src={image} alt={name} />
+      <div>
+        <p>Resilience: {resilience}</p>
+        <p>Speed: {speed}</p>
+        <p>Year of creation: {created}</p>
+      </div>
+    </RobotStyled>
   );
 };
 export default Robot;

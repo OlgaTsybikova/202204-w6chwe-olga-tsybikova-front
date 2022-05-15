@@ -11,9 +11,14 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="container">
-      <RobotList />
-    </div>
+    <>
+      <main>
+        <h1>THE CUTEST ROBOTS</h1>
+        <div className="container">
+          <RobotList />
+        </div>
+      </main>
+    </>
   );
 }
 
