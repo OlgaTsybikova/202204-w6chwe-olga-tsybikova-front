@@ -1,13 +1,16 @@
+import { useSelector } from "react-redux";
 import Robot from "../Robot/Robot";
+import RobotListStyled from "./RobotListStyled";
 
 const RobotList = () => {
+  const robots = useSelector((state) => state.todos);
   return (
     <>
-      <ul className="robotList">
-        <Robot />
-        <Robot />
-        <Robot />
-      </ul>
+      <RobotListStyled className="robot-list">
+        {robots.map((robot) => (
+          <Robot key={robot.id} robot={robot} />
+        ))}
+      </RobotListStyled>
     </>
   );
 };
