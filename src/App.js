@@ -1,9 +1,9 @@
-import Robot from "./components/Robot";
+import RobotList from "./components/RobotList/RobotList";
 
 function App() {
   return (
     <div className="container">
-      <Robot />
+      <RobotList />
     </div>
   );
 }
