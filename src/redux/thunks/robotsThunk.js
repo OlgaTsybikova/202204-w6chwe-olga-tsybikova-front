@@ -23,7 +23,7 @@ export const loadRobotsThunk = () => async (dispatch) => {
 export const deleteRobotsThunk = (id) => async (dispatch) => {
   try {
     const { status } = await axios.delete(
-      `${process.env.REACT_APP_API_URL}${id}`,
+      `${process.env.REACT_APP_ROBOTS}${id}`,
       {
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_ROBOTS_TOKEN}`,
