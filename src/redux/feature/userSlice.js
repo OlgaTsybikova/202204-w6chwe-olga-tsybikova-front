@@ -1,6 +1,6 @@
 const { createSlice } = require("@reduxjs/toolkit");
 
-const UserSlice = createSlice({
+const userSlice = createSlice({
   name: "user",
   initialState: {},
   reducers: {
@@ -8,4 +8,6 @@ const UserSlice = createSlice({
   },
 });
 
-export default UserSlice;
+export const { logIn: logInActionCreator } = userSlice.actions;
+
+export default userSlice.reducer;
