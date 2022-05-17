@@ -1,5 +1,8 @@
 import axios from "axios";
-import { loadRobotsActionCreator } from "../feature/robotSlice";
+import {
+  delelteRobotActionCreator,
+  loadRobotsActionCreator,
+} from "../feature/robotSlice";
 
 export const loadRobotsThunk = () => async (dispatch) => {
   try {
@@ -15,4 +18,23 @@ export const loadRobotsThunk = () => async (dispatch) => {
       dispatch(loadRobotsActionCreator(robots.robots));
     }
   } catch {}
+};
+
+export const deleteRobotsThunk = (id) => async (dispatch) => {
+  try {
+    const { status } = await axios.delete(
+      `${process.env.REACT_APP_API_URL}${id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.REACT_APP_ROBOTS_TOKEN}`,
+        },
+      }
+    );
+
+    if (status === 200) {
+      dispatch(delelteRobotActionCreator(id));
+    }
+  } catch (error) {
+    return error.message;
+  }
 };
